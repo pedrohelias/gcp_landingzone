@@ -19,6 +19,26 @@ Para realizar um Landingzone é necessário
   <img src="../images/estrutura_landingzone_gcp.webp" alt="Texto Alternativo" width="500">
 </div>
 
+## Estrutura Funcional parte a parte do LandingZone
+
+O diagrama estrutural a nível de aplicação foi modelado com aspectos generalistas a serem escalados de acordo com a evolução do modelo. Mais abaixo os tópicos são aboardados e aprofundados. Esta é uma representação de um modelo Organizacional.
+
+### Design de Organização
+
+<div style="text-align: center;  ">
+  <img src="../images/diagramaParasolucagenerica.png" alt="Texto Alternativo" width="500">
+</div>
+
+### Bootstrap
+
+Este projeto representa o Bootstrap do ambiente, que em suma será responsável pela organização e configurações iniciais do GCP(políticas iniciais da organização, hierarquia de pastas, entre outros), além de guardar algumas variáveis secretas, como id's dos projetos, billing account, id da organização.
+
+É importante salientar que as estruturas secretas precisam ser armazenadas em "envs", ignorando seus commits à estrutura principal (utilizando o .gitignore é possível fazer isso), para evitar vazamentos de informações. 
+
+
+
+
+
 ## Links úteis
 
 
