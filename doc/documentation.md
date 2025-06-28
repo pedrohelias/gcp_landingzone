@@ -2,17 +2,34 @@
 
 ## Sobre o LandingZone do GCP
 
-## Pré-Requisitos para executar um Landingzone
+## Pré-Requisitos de Software e de Organização para executar um Landingzone
 
-Para realizar um Landingzone é necessário 
+Para realizar um Landingzone de forma eficiente são necessárias as seguintes intalações(todas tecnologias listadas recomenda-se a versão mais recente e estável):
+- Google Cloud SDK;
+- Terraform;
+- Git.
+
+Além do mais, são necessários os seguintes pré-requisitos no GCP:
+- Organização no Google Cloud;
+- Billing Account;
+- Configurar um Cloud Identity. Também é possível gerenciar um grupo pelo Workspace;
+- Algumas roles importantes para um grupo de usuários, caso seja necessário:
+  <b>
+  - roles/resourcemanager.projectCreator
+  - roles/resourcemanager.folderCreator 
+  - roles/resourcemanager.organizationAdmin
+  - roles/billing.admin.
+  </b>
+
+- Service Account.
 
 ## Componentes Essenciais para um LandingZone no GCP
 
-- <b>Hierarquia Organizacional</b>: 
-- <b>Identity and Access Management (IAM)</b>:
+- <b>Hierarquia Organizacional</b>: Hierarquia organizacional, distribuição de pastas e projetos, associando-se a  políticas robustasm são medidas essenciais para um gerenciamento eficiente de recursos. Se modelado e executado corretamente, será possível manter o controle e a visibilidade acima dos recursos utilizados no projeto. 
+- <b>Identity and Access Management (IAM)</b>: Utilizando o Cloud Identity, é possível gerenciar manualmente o acesso dos usuários, reforçando medidas de segurança e simplificando a autenticação
 - <b>Arquitetura da Rede</b>: Topologias típicas, como Shared VPC (criada para cada de ambiente, como Produção, Teste, Homologação), VPN, NAT (para habilitar acesso externo), além da definição do firewall (assegurar a conectividade para os fluxos de trabalho, além de proteger os acessos). A boa modelagem da arquitetura de rede é uma peça essencial para um landzone.
-- <b>Segurança e Compliance</b>:
-- <b>Monitoramento e Logs</b>:
+- <b>Segurança e Compliance</b>: 
+- <b>Monitoramento e Logs</b>: Ferramentas como Cloud Monitoring e Cloud Logging auxiliam no processo de acompanhamento do recurso. É possível também utilizar o Cloud Trace (antigo StackDriver) para obter dados a respeito de latência em requisições para serviços, e requisições entre serviços.
 
 
 <div style="text-align: center;  ">
