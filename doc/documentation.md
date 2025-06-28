@@ -27,7 +27,7 @@ Além do mais, são necessários os seguintes pré-requisitos no GCP:
 
 - <b>Hierarquia Organizacional</b>: Hierarquia organizacional, distribuição de pastas e projetos, associando-se a  políticas robustasm são medidas essenciais para um gerenciamento eficiente de recursos. Se modelado e executado corretamente, será possível manter o controle e a visibilidade acima dos recursos utilizados no projeto. 
 - <b>Identity and Access Management (IAM)</b>: Utilizando o Cloud Identity, é possível gerenciar manualmente o acesso dos usuários, reforçando medidas de segurança e simplificando a autenticação
-- <b>Arquitetura da Rede</b>: Topologias típicas, como Shared VPC (criada para cada de ambiente, como Produção, Teste, Homologação), VPN, NAT (para habilitar acesso externo), além da definição do firewall (assegurar a conectividade para os fluxos de trabalho, além de proteger os acessos). A boa modelagem da arquitetura de rede é uma peça essencial para um landzone.
+- <b>Arquitetura da Rede</b>: Topologias típicas, como Rede Compartilha, ou Shared VPC (criada para cada de ambiente, como Produção, Teste, Homologação), VPN, NAT (para habilitar acesso externo), além da definição do firewall (assegurar a conectividade para os fluxos de trabalho, além de proteger os acessos). A boa modelagem da arquitetura de rede é uma peça essencial para um landzone.
 - <b>Segurança e Compliance</b>: 
 - <b>Monitoramento e Logs</b>: Ferramentas como Cloud Monitoring e Cloud Logging auxiliam no processo de acompanhamento do recurso. É possível também utilizar o Cloud Trace (antigo StackDriver) para obter dados a respeito de latência em requisições para serviços, e requisições entre serviços.
 
@@ -52,6 +52,25 @@ Este projeto representa o Bootstrap do ambiente, que em suma será responsável 
 
 É importante salientar que as estruturas secretas precisam ser armazenadas em "envs", ignorando seus commits à estrutura principal (utilizando o .gitignore é possível fazer isso), para evitar vazamentos de informações. 
 
+### Infra
+
+Essa divisão representa a pasta que agrupará os projetos da infraestrutura compartilhada da organização, que são replicados em cada outro ambiente. Ou seja, as determinações descritas nesta divisão vão cobrir a estrutura dos outros ambientes(dev e prod).
+
+Fazem parte da Infraestrutura:
+
+- <b>Logging</b>: Vai determinar a parte central dos projetos para Logs e monitoramento do GCP. Neste ponto, podem ser interessantes as adições do Cloud Logging, Cloud Monitoring e Cloud Trace.
+
+- <b>Security</b>: Vai determinar a parte central dos serviços de segurança presentes na estrutura geral. Neste ponto, são interessantes políticas de utilização do ambiente. Externamente, a adição do Cloud Armor é essencial para evitar ataques cibernéticos e tornar mais robusta a infraestrutura da organização.
+
+- <b>Nethub</b>: Vai construir toda a rede da organização, baseado principalmente em Shared VPC e roteadores. Adicionalmente, serve como hub da malha de rede, como VPC Peering, Interconnect, entre outros.
+
+### dev-Environment e prod-Environment
+
+São divisões semelhantes, com a simples deferença em seu posicionamento na esteira de desenvolvimento: desenvolvimento e produção. Neste contexto, temos:
+
+- <b>netenv</b>: Aqui são determinar os projetos que se envolvem diretamente com a rede. Eles vão servir e suportar os projetos contidos na camada de business tratando, principalmente, questões de conectividade. 
+
+- <b>business</b>: Esta divisão vai conter os projetos relacionados aos serviços prestados pela organização, no domnímio de aplicação. Aqui estão relacionados os Apps, API's, funções, entre outros. Tais projetos são descritos como projx-dev/prod. No diagrama esses projetos foram numerados, mas são escaláveis de acordo com o catálogo de serviços da organização.
 
 
 
