@@ -36,9 +36,7 @@ activate_apis = [
   "dns.googleapis.com"                #Cloud DNS
 ]
 
-default_region = [
-  "us-central1"
-]
+default_region = "us-central1"
 
 org_id = "org_id"
 
@@ -47,9 +45,9 @@ group_org_admins = [
   "admin2@exemplo.com"
 ]
 
-group_billing_admins = [
-  "email@email.com",
-  "email@email2.com"
-]
+group_billing_admins = "email@email.com"
+
 
 iac_service_account_email = "email@email3.com"
+
+gcp_svc_key = "colocar caminho para o keyfile.json"

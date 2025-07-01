@@ -31,3 +31,8 @@ variable "iac_service_account_email" {
   description = "Email da conta de serviço do Terraform"
   type        = string
 }
+
+variable "gcp_svc_key" {
+  description = "Caminho para o arquivo JSON da service account do GCP"
+  type        = string
+}

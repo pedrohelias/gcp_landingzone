@@ -1,0 +1,25 @@
+#ignrorar arquivos de estado do terraform
+*.tfstate
+*.tfstate.backup
+
+# ignorar logs de crash, erros, etc...
+crash.log
+
+#ignorar arquivos de override
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+#ignorar arquivos de configuração cli
+.terraformrc
+terraform.rc
+
+# Ignore the .terraform directory (where plugins/providers are downloaded)
+.terraform/
+
+#ignorar o json se o terraform criar
+*.tfvars.json
+
+#ignroarr lockfile
+!.terraform.lock.hcl
