@@ -19,10 +19,9 @@ type        = string
 }
 
 variable "group_org_admins" {
-  description = "Email do grupo de admins da organização"
-  type        = string
+  description = "Emails do(s) grupo(s) de admins da organização"
+  type        = list(string)
 }
-
 variable "group_billing_admins" {
   description = "Email do grupo de billing admins"
   type        = string

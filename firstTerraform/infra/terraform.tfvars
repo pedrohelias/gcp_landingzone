@@ -43,9 +43,8 @@ default_region = [
 org_id = "org_id"
 
 group_org_admins = [
-  "email@email.com",
-  "email@email2.com"
-
+  "admin1@exemplo.com",
+  "admin2@exemplo.com"
 ]
 
 group_billing_admins = [
