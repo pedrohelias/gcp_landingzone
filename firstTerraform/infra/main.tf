@@ -41,7 +41,7 @@ resource "google_organization_iam_binding" "billing_creator_binding" {
 resource "google_storage_bucket_iam_member" "terraform_sa_bucket_admin" {
   bucket = google_storage_bucket.terraform_state.name
   role   = "roles/storage.admin"
-  member = "serviceAccount:${var.iac_service_account_email}"
+  member = "serviceAccount:${var.iac_service_account_email}" #verificar se vai criar service account nova ou utializar service account do bucket - VALIDAR. Tem que ser a mesma service account - pode separar as service accounts?
 }
 
 #atribuição de permissão para a conta de serviço do Terraform no nivel da organização, para criar recursos
@@ -49,7 +49,7 @@ resource "google_organization_iam_binding" "terraform_sa_org_permissions" {
   org_id = var.org_id
   role   = "roles/owner"
   members = [
-    "serviceAccount:${var.iac_service_account_email}", #aqui pode alterar a variavel se necessário, caso usuários aptos a nivel de buckets naõ sejam os mesmos com atribução para criação de recursos 
+    "serviceAccount:${var.iac_service_account_email}", #aqui pode alterar a variavel se necessário, caso usuários aptos a nivel de buckets naõ sejam os mesmos com atribução para criação de recursos - Verificar
 
   ]
 }
