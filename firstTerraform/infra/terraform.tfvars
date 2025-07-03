@@ -41,13 +41,13 @@ default_region = "us-central1"
 org_id = "org_id"
 
 group_org_admins = [
-  "admin1@exemplo.com",
-  "admin2@exemplo.com"
+  "pedro.helias@ppntecnologia.com",
+  "matheus.oliveira@ppntecnologia.com.br "
 ]
 
-group_billing_admins = "email@email.com"
+group_billing_admins = "pedro.helias@ppntecnologia.com"
 
 
-iac_service_account_email = "email@email3.com"
+iac_service_account_email = "pedro.helias@ppntecnologia.com"
 
 gcp_svc_key = "colocar caminho para o keyfile.json"

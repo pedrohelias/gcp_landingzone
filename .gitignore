@@ -23,3 +23,6 @@ terraform.rc
 
 #ignroarr lockfile
 !.terraform.lock.hcl
+
+#ignorar o vars
+terraform.tfvars
